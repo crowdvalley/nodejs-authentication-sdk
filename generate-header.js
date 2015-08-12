@@ -18,7 +18,7 @@ var network = 'yournetworkname';
 
 // Enter the API endpoint. This should be "https://sandbox.crowdvalley.com/v1" 
 // unless you have a paid account with Crowd Valley and you are using the live API
-var apiBase = "https://sandbox.crowdvalley.com/v1";
+var apiBase = "https://api.sandbox.crowdvalley.com/v1";
 
 //
 //
@@ -31,38 +31,5 @@ var apiBasicUsername = '';
 var apiBasicPassword = '';
 
 
-function httpsGet(path, callback) {
-
-    var authHeader = cvApi.createAuthHeader(apiKey,apiSecret,network,username,password,apiBasicUsername,apiBasicPassword);
-
-    var options = {
-        host: apiBase,
-        port: 443,
-        path: path,
-        headers: authHeader
-    };
-
-    onDataCallback = function (response) {
-        var result = '';
-
-        response.on('data', function (chunk) {
-            result += chunk
-        });
-
-        response.on('end', function () {
-            callback(result)
-        });
-
-
-    }
-
-    https.request(options, onDataCallback).on('error', function (e) {
-        console.log(e);
-    }).end();
-
-}
-
-httpsGet("/", function (result) {
-
-    console.log(result);
-});
+var authHeader = cvApi.createAuthHeader(apiKey,apiSecret,network,username,password,apiBasicUsername,apiBasicPassword);
+console.log("AUTHHEADER: " + JSON.stringify(authHeader));

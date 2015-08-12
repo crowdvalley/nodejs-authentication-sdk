@@ -228,13 +228,7 @@ function _createToken(apiKey,apiSecret,userName,userPass) {
 
     var digest = sha1Sum.digest('base64');
 
-    var token = "AuthToken ApiKey=\""
-        + apiKey + "\", TokenDigest=\""
-        + digest + "\", Nonce=\""
-        + nonce64 + "\", Created=\""
-        + created + "\", Username=\""
-        + userName + "\", Password=\""
-        + userPass64 + "\"";
+    var token = "AuthToken ApiKey=" + apiKey + ", TokenDigest=" + digest + ", Nonce="+ nonce64 + ", Created=" + created + ", Username=" + userName + ", Password=" + userPass64;
 
     return token;
 }
