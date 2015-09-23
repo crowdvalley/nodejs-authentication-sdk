@@ -3,11 +3,10 @@
 */
 
 var cvApi = require("./cv-api.js");
-var https = require('https');
 
 // Enter your Crowd Valley API Key and Secret
 var apiKey = 'your-api-key';
-var apiSecret = 'your-api-secret';
+var apiSecret = 'your-api-secret'
 
 // Enter your Username and Password
 var username = 'yourname@youremail.com';
@@ -18,7 +17,7 @@ var network = 'yournetworkname';
 
 // Enter the API endpoint. This should be "https://sandbox.crowdvalley.com/v1" 
 // unless you have a paid account with Crowd Valley and you are using the live API
-var apiBase = "https://api.sandbox.crowdvalley.com/v1";
+var apiBase = "https://sandbox.crowdvalley.com/v1";
 
 //
 //
@@ -32,4 +31,5 @@ var apiBasicPassword = '';
 
 
 var authHeader = cvApi.createAuthHeader(apiKey,apiSecret,network,username,password,apiBasicUsername,apiBasicPassword);
-console.log("AUTHHEADER: " + JSON.stringify(authHeader));
+console.log("AUTHHEADER: " + authHeader["cv-auth"])
+
